@@ -18,11 +18,11 @@ from threading import Thread, Lock
 # Standard module stuff
 WORDS = ["MUSIC" ]
 
-commandFile=os.path.abspath("Desktop/beamy/button/XML/command.xml")
+commandFile=os.path.abspath("home/debian/beamy/XML/command.xml")
 
-commandMusicFile=os.path.abspath("Desktop/beamy/button/XML/commandMusic.xml")
+commandMusicFile=os.path.abspath("home/debian/beamy/XML/commandMusic.xml")
 
-musicFile=os.path.abspath("Desktop/beamy/button/media/music")
+musicFile=os.path.abspath("home/debian/beamy/media/music")
 
 
 

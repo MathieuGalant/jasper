@@ -18,9 +18,9 @@ from threading import Thread, Lock
 WORDS = ["ALARM","ADD","CLOCK"]
 
 
-alarmFile=os.path.abspath("Desktop/beamy/button/XML/alarm.xml")
+alarmFile=os.path.abspath("home/debian/beamy/XML/alarm.xml")
 
-addAlarmFile=os.path.abspath("Desktop/beamy/button/XML/addAlarm.xml")
+addAlarmFile=os.path.abspath("home/debian/beamy/XML/addAlarm.xml")
 
 Small = {
     'zero': 0,
@@ -117,7 +117,7 @@ def addAlarm(profile, mic):
                 print(alarmTimeMinute)
 		
 		hour=alarmTimeHour
-		appendingTime=""
+		appendingTime="am"
 		
                 if "today" in alarmData.lower():
                     dayNumber=datetime.datetime.today().weekday()+1
@@ -150,8 +150,7 @@ def addAlarm(profile, mic):
                     appendingTime="pm"
                     hour=alarmTimeHour+12
                 
-                if "am" in alarmData.lower():
-                    appendingTime="am"
+               
                     
                            
                 
