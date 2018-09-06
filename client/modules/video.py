@@ -16,11 +16,11 @@ from threading import Thread, Lock
 # Standard module stuff
 WORDS = ["VIDEO" ]
 
-commandFile=os.path.abspath("Desktop/beamy/button/XML/command.xml")
+commandFile=os.path.abspath("home/debian/beamy/XML/command.xml")
 
-commandVideoFile=os.path.abspath("Desktop/beamy/button/XML/commandVideo.xml")
+commandVideoFile=os.path.abspath("home/debian/beamy/XML/commandVideo.xml")
 
-videoFile=os.path.abspath("Desktop/beamy/button/media/video")
+videoFile=os.path.abspath("home/debian/beamy/media/video")
 
 
 
