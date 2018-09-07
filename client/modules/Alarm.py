@@ -18,9 +18,9 @@ from threading import Thread, Lock
 WORDS = ["ALARM","ADD","CLOCK"]
 
 
-alarmFile=os.path.abspath("home/debian/beamy/XML/alarm.xml")
+alarmFile="/home/debian/beamy/XML/alarm.xml"
 
-addAlarmFile=os.path.abspath("home/debian/beamy/XML/addAlarm.xml")
+addAlarmFile="/home/debian/beamy/XML/addAlarm.xml"
 
 Small = {
     'zero': 0,
