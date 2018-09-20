@@ -39,8 +39,7 @@ def handle(text, mic, profile):
  
 
     mic.say("Starting video mode")
-    handleForever(mic)
-    mic.say("Exiting video mode")
+    readCommandXML("TECHNOLOGY.mp4")
 
     return
 
@@ -55,103 +54,16 @@ def isValid(text):
     return any(word in text.upper() for word in WORDS)
                
                
-def loadMusicNames(videoFile):
-        
-        videoNames=[]
-        videoExtention=[]
-        for video in os.listdir(videoFile):
-            sep = '.'
-            rest = video.split(sep, 1)[0]
-            extention=video.split(sep, 1)[1]
-            videoNames.append(rest)
-            videoExtention.append(extention)
-        return videoNames, videoExtention
-    
-    
-def delegateInput(mic,input):
-
-        command = input.upper()
-
-
-        if "CONTINUE" in command:
-            mic.say("Continue video")
-            readCommandVideoXML("continue")
-            return
-        elif "PAUSE" in command:
-            mic.say("Pausing video")
-            readCommandVideoXML("pause")
-            return
-        elif any(ext in command for ext in ["LOUDER", "HIGHER"]):
-            mic.say("Louder")
-            readCommandVideoXML("volume up")
-            return
-        elif any(ext in command for ext in ["SOFTER", "LOWER"]):
-            mic.say("Softer")
-            readCommandVideoXML("volume down")
-            return
-        else:
-            mic.say("Can you repeat")
-            return
-        
-
- 
-
-def handleForever(mic):
-    
-        videoNames,videoExtention=loadMusicNames(videoFile)
-        mic.say("What video do you want to play")
-
-        while True:    
-            videoName = mic.activeListen()
-            print(videoName)
-            
-            if any(s in videoName for s in videoNames):
-                for i in [i for i,x in enumerate(videoNames) if (x == videoName)]:
-                    completeName=videoName+"."+videoExtention[i]
-                    print(completeName)
-                    readCommandXML(completeName)
-                    mic.say("Starting %s video" % videoName)
-                
-                while True :
-                    command = mic.activeListen()
-                    if any(ext in command for ext in ["quit", "stop"]):
-                        mic.say("Closing video")
-                        readCommandVideoXML("quit")
-                        return
-                    else:
-                        delegateInput(mic,command)
-
-
-            elif any(ext in videoName for ext in ["quit", "stop"]):
-                mic.say("Closing video")
-                readCommandVideoXML("quit")
-                return
-            else:
-                mic.say("Can you repeat")
- 
 
 
 
- 
 
 
       
 
 
 
-def readCommandVideoXML(commandVideo):
-    
-        tree = ET.parse(commandVideoFile)  
-        root = tree.getroot()
 
-        # changing a field text
-        for elem in root.iter('etat'):  
-            elem.text = commandVideo
-            
- 
-
-        tree.write(commandVideoFile)
-        
         
 
 def readCommandXML(videoName):
