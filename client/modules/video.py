@@ -14,7 +14,7 @@ from threading import Thread, Lock
 
 
 # Standard module stuff
-WORDS = ["VIDEO" ]
+WORDS = ["VIDEO", "PLAY", "SHOW", "START" ]
 
 commandFile="/home/debian/beamy/XML/command.xml"
 
